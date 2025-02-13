@@ -1,0 +1,308 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-size: 600% 600%;
+    animation: gradientBG 10s ease infinite;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* Main Container */
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Dynamic Text Styling with Heartbeat Effect */
+.dynamic-text {
+    font-size: clamp(1rem, 4vw, 2rem);
+    color: #ff385c;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    transition: color 0.3s ease-in-out;
+    word-wrap: break-word;
+    max-width: 90%;
+    animation: heartbeat 1.5s infinite ease-in-out; /* Apply the heartbeat effect */
+}
+
+/* Dynamic Text Hover Effect */
+.dynamic-text:hover {
+    color: #ff6b81;
+}
+.container {
+    max-width: 95%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+/* Title Styling */
+.title h1 {
+    font-size: clamp(1.5rem, 6vw, 3.5rem);
+    color: #ff385c;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    word-wrap: break-word;
+    margin: 10px 0;
+}
+
+/* Title Hover Effect */
+.title h1:hover {
+    transform: scale(1.1);
+    color: #ff6b81;
+}
+
+/* Valentine Message */
+.valentine-message {
+    font-size: clamp(1rem, 4vw, 2rem);
+    color: #ff385c;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    word-wrap: break-word;
+    max-width: 90%;
+}
+
+/* Valentine Message Hover */
+.valentine-message:hover {
+    transform: scale(1.05);
+    color: #ff6b81;
+}
+
+/* Main Square Styling */
+#main-square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("img/Demon.jpg");
+}
+
+/* Image Container */
+.square {
+    width: 150px;
+    height: 150px;
+    background-color: #fce6e6;
+    margin: 15px auto;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.square img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+/* Buttons Container */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+/* Button Styling */
+.buttons button {
+    padding: 0.8em 1.8em;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #ff6b81, #ff385c);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s, letter-spacing 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button Hover Effect */
+.buttons button:hover {
+    background: linear-gradient(145deg, #ff385c, #ff6b81);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.5);
+    transform: scale(1.05);
+    letter-spacing: 1px;
+}
+
+/* Button Click Effect */
+.buttons button:active {
+    transform: scale(0.95);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Heart Animation Inside 'Yes' Button */
+.buttons button::before {
+    content: "❤️";
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Show heart animation on hover */
+.buttons button:hover::before {
+    opacity: 1;
+    animation: pulse 1.2s infinite;
+}
+
+
+/* Heart Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+}
+
+/* No Button Styling */
+#no-btn {
+    background-color: #e57373;
+}
+
+/* Sad Face for 'No' Button on Hover */
+#no-btn:hover::before {
+    content: "☹️";
+    font-size: 1.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 5px;
+    }
+
+    .title h1 {
+        font-size: clamp(1.2rem, 5vw, 2.5rem);
+        letter-spacing: 1px;
+    }
+
+    .valentine-message {
+        font-size: clamp(0.9rem, 3.5vw, 1.8rem);
+        margin-top: 5px;
+    }
+
+    .square {
+        width: 120px;
+        height: 120px;
+        margin: 10px auto;
+    }
+
+    .buttons {
+        gap: 8px;
+        margin-top: 8px;
+    }
+
+    .buttons button {
+        padding: 0.6em 1.5em;
+        font-size: clamp(0.8rem, 2.5vw, 1rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .title h1 {
+        font-size: clamp(1rem, 4.5vw, 2rem);
+        letter-spacing: 0.5px;
+    }
+
+    .valentine-message {
+        font-size: clamp(0.8rem, 3vw, 1.5rem);
+        margin-top: 3px;
+    }
+
+    .square {
+        width: 100px;
+        height: 100px;
+        margin: 8px auto;
+    }
+
+    .buttons {
+        gap: 5px;
+        margin-top: 5px;
+    }
+
+    .buttons button {
+        padding: 0.5em 1.2em;
+        font-size: clamp(0.7rem, 2vw, 0.9rem);
+    }
+
+    /* Adjust heart and sad face sizes for smaller screens */
+    .buttons button::before {
+        font-size: 16px;
+    }
+
+    #no-btn:hover::before {
+        font-size: 1.2rem;
+    }
+}
+
